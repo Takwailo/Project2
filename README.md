@@ -33,3 +33,12 @@ This is your passport boilerplate.
 #### Make a commit 
 
 ```git commit -m "setup up oauth and User Model"```
+
+## ERM
+![ERD](/image/ERD.png)
+## User Stories
+![User Stories](/image/User%20Stories.png)
+## Wireframe
+![Wireframe1](/image/Load%20in%20page.png)
+![Wireframe1](/image/recipe%20list.png)
+![Wireframe1](/image/grocy%20page.png)
