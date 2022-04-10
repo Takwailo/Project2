@@ -1,6 +1,9 @@
+var express = require('express');
 var router = require('express').Router();
 const { render } = require('ejs');
 const passport = require('passport');
+const request = require('request');
+
 
 // The root route renders our only view
 router.get('/', function(req, res) {
