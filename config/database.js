@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // replace your database connection string here
-mongoose.connect(process.env.DATABASE_URL,{ 
+mongoose.connect('mongodb://localhost/studio',{ 
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
