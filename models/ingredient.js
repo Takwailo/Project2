@@ -11,4 +11,4 @@ const ingredientSchema = new Schema({
   like: { type: Boolean, default: true },
 });
 
-module.exports = mongoose.model("Ingredient", ingredientSchema);
+module.exports = mongoose.model("Ingredients", ingredientSchema);

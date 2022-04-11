@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // replace your database connection string here
-mongoose.connect('mongodb://localhost/studio',{ 
+mongoose.connect('mongodb://localhost/recipes',{ 
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
