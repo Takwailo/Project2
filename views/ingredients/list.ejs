@@ -1,4 +1,39 @@
 <%- include('../partials/header') %>
-<h1>FOUND ingredients list</h1>
-  
-<%- include('../partials/footer') %>
+
+    <form action="/ingredients" method="POST">
+        <input type="text" name="ingredient">
+        <select name="category">
+            <option value="Fruit and Vegetables">Fruit and Vegetables</option>
+            <option value="Starch">Starch</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Protein">Protein</option>
+            <option value="Fat">Fat</option>
+        </select>
+        <input type="checkbox" name="like" checked>
+        <input type="submit">
+    </form>
+
+    <table>
+        <tr>
+            <th>Ingredient</th>
+            <th>Category</th>
+            <th>Like?</th>
+        </tr>
+        <tbody>
+            <% ingredient.forEach(i=> { %>
+                <tr>
+                    <td>
+                        <%= i.ingredient.toUpperCase() %>
+                    </td>
+                    <td>
+                        <%= i.category %>
+                    </td>
+                    <td>
+                        <%= i.like ? 'Yes' : 'Nope' %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+    <%- include('../partials/footer') %>
