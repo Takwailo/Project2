@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const ingredientsSchema = new Schema ({
-    ingredient: {typer: String, required: true,
-    },
+const ingredientSchema = new Schema ({
+    ingredient: {typer: String},
     like: Boolean
 })
 
-module.exports = mongoose.model('Ingredients', ingredientsSchema);
+module.exports = mongoose.model('Ingredient', ingredientSchema);
