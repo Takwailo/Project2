@@ -1,7 +1,14 @@
 <%- include('../partials/header') %>
 
 
-<h1> 123 </h1>
+<ul>
+    <%- recipe.ingredients.map(i => 
+      `<li>${i.ingredient}</li>`
+    ) %>
+  </ul>
+<h1><%= recipe.method %> </h1>
+<h2><%= recipe.cuisine %> </h2>
+
 
 
 <%- include('../partials/footer') %>

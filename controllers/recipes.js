@@ -29,8 +29,12 @@ function show (req, res){
     Recipe.findById(req.params.id)
     .populate('ingredients')
     .exec(function (err,recipe){
-        console.log(recipe)
-        res.render('recipes/show', {title: '123'})
+        Ingredient.find(
+            {_id: {$nin: recipe.ingredients}},
+            function(err, ingredients){
+                res.render('recipes/show', {recipe, ingredients, title: `${recipe.title}`})
+            }
+        )
     })
 }
 
