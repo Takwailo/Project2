@@ -8,6 +8,7 @@ const passport = require('passport');
 const methodOverride = require('method-override');
 const indexRoutes = require('./routes/index');
 const recipesRoutes = require('./routes/recipes')
+const ingredientsRoutes = require('./routes/ingredients')
 // load the env consts
 require('dotenv').config();
 
