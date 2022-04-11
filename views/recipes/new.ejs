@@ -1,5 +1,14 @@
 <%- include('../partials/header') %>
 
+<form action="/recipe" method="POST">
+    <label>Tilte</label>
+    <input type="text" Name="title">
+    <select name="ingredient">
+        <%- ingredient.map(i=>
+          `<option value="${i._id}">${i.ingredient.toUpperCase()}</option>`
+          )%>
+      </select>
 
+</form>
 
 <%- include('../partials/footer') %>
