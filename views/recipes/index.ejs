@@ -1,4 +1,15 @@
 <%- include('../partials/header') %>
-<h1>recipes</h1>
+<label>Recipes</label>
+<table>
+    <thead>
+        <th>Recipes Name</th>
+    </thead>
+    <tbody>
+        <% recipes.forEach(r => { %>
+            <td><%= r.title%></td>
+            <td><a href="/recipes/<%= r.id %>">DETAIL</td>
+        <% }) %>
+    </tbody>
+</table>
   
 <%- include('../partials/footer') %>
