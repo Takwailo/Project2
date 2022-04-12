@@ -1,4 +1,3 @@
-
 const Ingredient = require("../models/ingredient");
 const Recipe = require("../models/recipe");
 
@@ -19,39 +18,61 @@ function create(req, res) {
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   const recipe = new Recipe(req.body);
-  console.log(req.body)
+  console.log(req.body);
   recipe.save(function (err) {
     console.log(err);
     res.redirect("recipes");
   });
 }
 
-function show (req, res){
-    Recipe.findById(req.params.id)
-    .populate('ingredients')
-    .exec(function (err,recipe){
-        Ingredient.find(
-            {_id: {$nin: recipe.ingredients}},
-            function(err, ingredients){
-                res.render('recipes/show', {recipe, ingredients, title: `${recipe.title}`})
-            }
-        )
-    })
+function show(req, res) {
+  Recipe.findById(req.params.id)
+    .populate("ingredients")
+    .exec(function (err, recipe) {
+      Ingredient.find(
+        { _id: { $nin: recipe.ingredients } },
+        function (err, ingredients) {
+          res.render("recipes/show", {
+            recipe,
+            ingredients,
+            title: `${recipe.title}`,
+          });
+        }
+      );
+    });
 }
 
-function removeRecipe(req, res, next){
-  Recipe.findById((req.params.id), function(err, recipe){
-    recipe.remove()
-    recipe.save(function (err){
-      if (err) next(err)
-      res.redirect('/recipes')
-    })
-  }
-  )
+function removeRecipe(req, res, next) {
+  Recipe.findById(req.params.id, function (err, recipe) {
+    recipe.remove();
+    recipe.save(function (err) {
+      if (err) next(err);
+      res.redirect("/recipes");
+    });
+  });
 }
 
-function edit (req, res){
-              res.render('recipes/edit', {title: 'edit recipe'})
+function edit(req, res) {
+  Recipe.findById(req.params.id)
+    .populate("ingredients")
+    .exec(function (err, recipe) {
+      Ingredient.find({}, function (err, ingredients) {
+        res.render("recipes/edit", {
+          ingredients,
+          recipe,
+          title: "edit recipe",
+        });
+      });
+    });
+}
+
+function update(req, res){
+  Recipe.findById(req.params.id)
+  .update(req.body)
+  .exec(function (err, recipe){
+    console.log(req.param.id)
+    res.redirect("/recipes")
+  })
 }
 
 module.exports = {
@@ -60,5 +81,6 @@ module.exports = {
   create,
   show,
   delete: removeRecipe,
-  edit
+  edit,
+  update
 };

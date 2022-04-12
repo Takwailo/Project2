@@ -1,6 +1,18 @@
 <%- include('../partials/header') %>
 
-
+<form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
+    <label>Tilte</label>
+    <input type="text" Name="title" required>
+    <label>Cuisne</label>
+    <select name ='cuisine' required>
+        <option value="Italian">Italian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Indian">Indian</option>
+        <option value="American">American</option>
+    </select>
+    <input type="submit" value="Add Recipe">
+</form>
 
 
 
