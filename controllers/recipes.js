@@ -17,8 +17,10 @@ function addRecipe(req, res) {
 }
 
 function create(req, res) {
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
   const recipe = new Recipe(req.body);
-  console.log(recipe)
+  console.log(req.body)
   recipe.save(function (err) {
     console.log(err);
     res.redirect("recipes");

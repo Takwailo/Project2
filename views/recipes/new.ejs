@@ -6,7 +6,7 @@
     <label>Tilte</label>
     <input type="text" Name="title" required>
     <label>Ingredients</label>
-    <select name="ingredients" required>
+    <select name="ingredients" required multiple>
         <%- ingredient.map(i=>
           `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
           )%>

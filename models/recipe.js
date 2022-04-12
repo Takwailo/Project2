@@ -15,6 +15,7 @@ const recipesSchema = new Schema({
     enum: ["Italian", "Japanese", "Chinese", "Indian", "American"],
   },
   user: { type: Schema.Types.ObjectId, ref: "User" },
+  userName: String,
 });
 
 module.exports = mongoose.model("Recipes", recipesSchema);
