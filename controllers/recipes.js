@@ -1,6 +1,5 @@
-const request = require("request");
+
 const Ingredient = require("../models/ingredient");
-const recipe = require("../models/recipe");
 const Recipe = require("../models/recipe");
 
 function index(req, res) {
@@ -40,9 +39,21 @@ function show (req, res){
     })
 }
 
+function removeRecipe(req, res, next){
+  Recipe.findById((req.params.id), function(err, recipe){
+    recipe.remove()
+    recipe.save(function (err){
+      if (err) next(err)
+      res.redirect('/recipes')
+    })
+  }
+  )
+}
+
 module.exports = {
   index,
   new: addRecipe,
   create,
   show,
+  delete: removeRecipe
 };

@@ -1,15 +1,25 @@
 <%- include('../partials/header') %>
 
 
-<ul>
-    <%- recipe.ingredients.map(i => 
+  <ul>
+    <%- recipe.ingredients.map(i=>
       `<li>${i.ingredient}</li>`
-    ) %>
+      ) %>
   </ul>
-<h1><%= recipe.method %> </h1>
-<h2><%= recipe.cuisine %> </h2>
-<h3><%= recipe.userName %> </h3>
+  <h1>
+    <%= recipe.method %>
+  </h1>
+  <h2>
+    <%= recipe.cuisine %>
+  </h2>
+  <h3>
+    <%= recipe.userName %>
+  </h3>
 
+  <% if (user && user._id.equals(recipe.user)) { %>
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+      <button type="submit">DELETE RECIPE</button>
+    </form>
+    <% } %>
 
-
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
