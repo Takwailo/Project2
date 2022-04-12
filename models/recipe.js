@@ -1,15 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const recipesSchema = new Schema({
-  title: {
-    type: String,
-  },
+  title: String,
   ingredients: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
-  method: {
-    type: String,
-  },
+  method: [{ type: String }],
   cuisine: {
     type: String,
     enum: ["Italian", "Japanese", "Chinese", "Indian", "American"],

@@ -6,9 +6,11 @@
       `<li>${i.ingredient}</li>`
       ) %>
   </ul>
-  <h1>
-    <%= recipe.method %>
-  </h1>
+  <ol>
+    <%- recipe.method.map(m=>
+      `<li>${m}</li>`
+      ) %>
+  </ol>
   <h2>
     <%= recipe.cuisine %>
   </h2>
@@ -23,4 +25,4 @@
     <button><a href="/recipes/<%= recipe.id %>/edit">EDIT RECIPE</a></button>
     <% } %>
 
-    <%- include('../partials/footer') %>
+      <%- include('../partials/footer') %>
