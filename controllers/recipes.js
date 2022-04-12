@@ -50,10 +50,15 @@ function removeRecipe(req, res, next){
   )
 }
 
+function edit (req, res){
+              res.render('recipes/edit', {title: 'edit recipe'})
+}
+
 module.exports = {
   index,
   new: addRecipe,
   create,
   show,
-  delete: removeRecipe
+  delete: removeRecipe,
+  edit
 };

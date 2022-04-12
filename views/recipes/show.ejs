@@ -20,6 +20,7 @@
     <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
       <button type="submit">DELETE RECIPE</button>
     </form>
+    <button><a href="/recipes/<%= recipe.id %>/edit">EDIT RECIPE</a></button>
     <% } %>
 
     <%- include('../partials/footer') %>
