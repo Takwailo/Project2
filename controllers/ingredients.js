@@ -15,9 +15,7 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.like = !!req.body.like;
-  console.log(req.body.ingredient)
   req.body.ingredient =  req.body.ingredient.toUpperCase()
-  console.log(req.body.ingredient)
   const ingredient = new Ingredient(req.body);
   ingredient.save(function () {
     res.redirect("ingredients");

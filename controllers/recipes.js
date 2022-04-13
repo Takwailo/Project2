@@ -18,7 +18,6 @@ function create(req, res) {
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   const recipe = new Recipe(req.body);
-  console.log(req.body);
   recipe.save(function (err) {
     console.log(err);
     res.redirect("recipes");
@@ -78,14 +77,13 @@ function deleteIng(req, res){
 Ingredient.findOne({ ingredient:`${req.body.ing}`})
 .then(function (doc) {
   let ingId = doc._id
-  console.log(ingId)
-  console.log(req.params.id)
-  Recipe.findById(req.params.id)
-    .remove({ ingredients: `${ingId}`})
-    .exec(function (err) {
-      if (err) next(err);
+  Recipe.findById(req.params.id, function(err, recipe){
+    let index = recipe.ingredients.indexOf(ingId)
+    recipe.ingredients.splice(index, 1)
+    recipe.save(function(err){
       res.redirect(`/recipes/${req.params.id}/edit`)
     })
+  })
   })
 };
 
