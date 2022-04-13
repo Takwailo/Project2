@@ -16,6 +16,7 @@ function addingIngsAndListOut() {
     list.setAttribute('name', 'ingredients')
     list.setAttribute('value', `${ingID}`)
     list.setAttribute('hidden', '')
+    console.log(list)
     listEl.appendChild(list);
     const listOut = document.querySelector('#ingredList')
     let list2 = document.createElement('li')

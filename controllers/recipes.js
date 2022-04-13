@@ -43,6 +43,7 @@ function show(req, res) {
 
 function removeRecipe(req, res, next) {
   Recipe.findById(req.params.id, function (err, recipe) {
+    if (!recipe.user.equals(req.user._id)) return res.redirect(`/recipes`);
     recipe.remove();
     recipe.save(function (err) {
       if (err) next(err);
@@ -55,6 +56,8 @@ function edit(req, res) {
   Recipe.findById(req.params.id)
     .populate("ingredients")
     .exec(function (err, recipe) {
+      if (!recipe.user.equals(req.user._id))
+        return res.redirect(`/recipes/${req.params.id}`);
       Ingredient.find({}, function (err, ingredients) {
         res.render("recipes/edit", {
           ingredients,
@@ -77,6 +80,8 @@ function deleteIng(req, res) {
   Ingredient.findOne({ ingredient: `${req.body.ing}` }).then(function (doc) {
     let ingId = doc._id;
     Recipe.findById(req.params.id, function (err, recipe) {
+      if (!recipe.user.equals(req.user._id))
+        return res.redirect(`/recipes/${req.params.id}`);
       let index = recipe.ingredients.indexOf(ingId);
       recipe.ingredients.splice(index, 1);
       recipe.save(function (err) {
@@ -86,16 +91,36 @@ function deleteIng(req, res) {
   });
 }
 
-function deleteMethod(req, res){
-  Recipe.findById(req.params.id, function (err, recipe){
-    let index = recipe.method.indexOf(req.body.method)
+function deleteMethod(req, res) {
+  Recipe.findById(req.params.id, function (err, recipe) {
+    if (!recipe.user.equals(req.user._id))
+      return res.redirect(`/recipes/${req.params.id}`);
+    let index = recipe.method.indexOf(req.body.method);
     recipe.method.splice(index, 1);
     recipe.save(function (err) {
+      res.redirect(`/recipes/${req.params.id}/edit`);
+    });
+  });
+}
+
+function addIng(req, res){
+  Recipe.findById(req.params.id, function(err, recipe){
+    recipe.ingredients.push(req.body.ingredients)
+    recipe.save(function(err){
+      res.redirect(`/recipes/${req.params.id}/edit`);
+    })
+  }
+)}
+
+function addMethod (req, res){
+  Recipe.findById(req.params.id, function(err, recipe){
+    let index = req.body.index - 1
+    recipe.method.splice(index, 0, req.body.method)
+    recipe.save(function(err){
       res.redirect(`/recipes/${req.params.id}/edit`);
     })
   })
 }
-
 
 module.exports = {
   index,
@@ -106,5 +131,7 @@ module.exports = {
   edit,
   update,
   deleteIng,
-  deleteMethod
+  deleteMethod,
+  addIng,
+  addMethod,
 };

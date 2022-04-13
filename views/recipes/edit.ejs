@@ -15,25 +15,41 @@
         <input type="submit" value="Change Recipe">
     </form>
 
-    <ul>
+    <ul>Ingredients
         <% recipe.ingredients.forEach(i=> { %>
             <li>
-                <%= i.ingredient %> 
-                <form action="/recipes/<%= recipe._id %>/RemoveIngredient?_method=DELETE" method="POST">
-                    <button type="submit" name="ing" value="<%= i.ingredient %>">Remove</button>
-                  </form>
+                <%= i.ingredient %>
+                    <form action="/recipes/<%= recipe._id %>/RemoveIngredient?_method=DELETE" method="POST">
+                        <button type="submit" name="ing" value="<%= i.ingredient %>">Remove</button>
+                    </form>
             </li>
             <% }) %>
     </ul>
-    <ol>
+    <label>Ingredients choices</label>
+    <form action="/recipes/<%= recipe.id %>/AddIngredient?_method=PUT" method="POST">
+    <select name="ingredients" required>
+        <%- ingredients.map(i=>
+            `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
+            )%>
+    </select>
+    <button type="submit">add ingredient</button>
+    </form>
+
+    <ol id="methodSteps">Step by Step
         <% recipe.method.forEach(m=> { %>
             <li>
                 <%= m %>
-                <form action="/recipes/<%= recipe._id %>/RemoveMethod?_method=DELETE" method="POST">
-                    <button type="submit" name="method" value="<%= m %>">Remove</button>
-                  </form>
+                    <form action="/recipes/<%= recipe._id %>/RemoveMethod?_method=DELETE" method="POST">
+                        <button type="submit" name="method" value="<%= m %>">Remove</button>
+                    </form>
             </li>
             <% }) %>
+                <label>Add Method</label>
+                <form action="/recipes/<%= recipe._id %>/AddingMethod?_method=PUT" method="POST">
+                    <input name="method" type="text" required>
+                    <input name="index" type="number" min='1' max="<%length.value%>" required>
+                    <button type="submit">add method step</button>
+                </form>
     </ol>
 
     <%- include('../partials/footer') %>
