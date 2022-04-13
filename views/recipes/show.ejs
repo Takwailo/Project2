@@ -2,9 +2,9 @@
 
 
   <ul>
-    <%- recipe.ingredients.map(i=>
-      `<li>${i.ingredient}</li>`
-      ) %>
+    <% recipe.ingredients.forEach(i => { %>
+      <li><%= i.ingredient %> </li>
+    <% }) %>
   </ul>
   <ol>
     <%- recipe.method.map(m=>

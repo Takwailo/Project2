@@ -1,16 +1,17 @@
 <%- include('../partials/header') %>
 
+<select name="ingredients" id="ing" required>
+    <%- ingredient.map(i=>
+      `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
+      )%>
+</select>
+<button id="btn">add ingredient</button>
+<p id="listOfIng"></p>
 
-
-<form action="/recipes" method="POST">
+<form id='input' action="/recipes" method="POST">
     <label>Tilte</label>
     <input type="text" Name="title" required>
     <label>Ingredients</label>
-    <select name="ingredients" required>
-        <%- ingredient.map(i=>
-          `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
-          )%>
-    </select>
     <button id="btn">add ingredient</button>
     <label>Method</label>
     <input type="'text" name='method' required>
