@@ -10,5 +10,6 @@ router.get('/:id/edit', isLoggedIn, recipesCtrl.edit)
 router.put('/:id', recipesCtrl.update)
 router.post('/', recipesCtrl.create)
 router.delete('/:id', recipesCtrl.delete)
+router.delete('/:id/RemoveIngredient', recipesCtrl.deleteIng)
 
 module.exports = router;

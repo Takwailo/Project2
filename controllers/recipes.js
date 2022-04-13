@@ -70,10 +70,25 @@ function update(req, res){
   Recipe.findById(req.params.id)
   .update(req.body)
   .exec(function (err, recipe){
-    console.log(req.param.id)
     res.redirect("/recipes")
   })
 }
+
+function deleteIng(req, res){
+Ingredient.findOne({ ingredient:`${req.body.ing}`})
+.then(function (doc) {
+  let ingId = doc._id
+  console.log(ingId)
+  console.log(req.params.id)
+  Recipe.findById(req.params.id)
+    .remove({ ingredients: `${ingId}`})
+    .exec(function (err) {
+      if (err) next(err);
+      res.redirect(`/recipes/${req.params.id}/edit`)
+    })
+  })
+};
+
 
 module.exports = {
   index,
@@ -82,5 +97,6 @@ module.exports = {
   show,
   delete: removeRecipe,
   edit,
-  update
+  update,
+  deleteIng
 };
