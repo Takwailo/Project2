@@ -29,6 +29,9 @@
         <% recipe.method.forEach(m=> { %>
             <li>
                 <%= m %>
+                <form action="/recipes/<%= recipe._id %>/RemoveMethod?_method=DELETE" method="POST">
+                    <button type="submit" name="method" value="<%= m %>">Remove</button>
+                  </form>
             </li>
             <% }) %>
     </ol>

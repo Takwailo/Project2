@@ -11,5 +11,6 @@ router.put('/:id', recipesCtrl.update)
 router.post('/', recipesCtrl.create)
 router.delete('/:id', recipesCtrl.delete)
 router.delete('/:id/RemoveIngredient', recipesCtrl.deleteIng)
+router.delete('/:id/RemoveMethod', recipesCtrl.deleteMethod)
 
 module.exports = router;

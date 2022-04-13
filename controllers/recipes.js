@@ -65,27 +65,36 @@ function edit(req, res) {
     });
 }
 
-function update(req, res){
+function update(req, res) {
   Recipe.findById(req.params.id)
-  .update(req.body)
-  .exec(function (err, recipe){
-    res.redirect("/recipes")
-  })
+    .update(req.body)
+    .exec(function (err, recipe) {
+      res.redirect("/recipes");
+    });
 }
 
-function deleteIng(req, res){
-Ingredient.findOne({ ingredient:`${req.body.ing}`})
-.then(function (doc) {
-  let ingId = doc._id
-  Recipe.findById(req.params.id, function(err, recipe){
-    let index = recipe.ingredients.indexOf(ingId)
-    recipe.ingredients.splice(index, 1)
-    recipe.save(function(err){
-      res.redirect(`/recipes/${req.params.id}/edit`)
+function deleteIng(req, res) {
+  Ingredient.findOne({ ingredient: `${req.body.ing}` }).then(function (doc) {
+    let ingId = doc._id;
+    Recipe.findById(req.params.id, function (err, recipe) {
+      let index = recipe.ingredients.indexOf(ingId);
+      recipe.ingredients.splice(index, 1);
+      recipe.save(function (err) {
+        res.redirect(`/recipes/${req.params.id}/edit`);
+      });
+    });
+  });
+}
+
+function deleteMethod(req, res){
+  Recipe.findById(req.params.id, function (err, recipe){
+    let index = recipe.method.indexOf(req.body.method)
+    recipe.method.splice(index, 1);
+    recipe.save(function (err) {
+      res.redirect(`/recipes/${req.params.id}/edit`);
     })
   })
-  })
-};
+}
 
 
 module.exports = {
@@ -96,5 +105,6 @@ module.exports = {
   delete: removeRecipe,
   edit,
   update,
-  deleteIng
+  deleteIng,
+  deleteMethod
 };
