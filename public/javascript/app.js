@@ -1,12 +1,14 @@
 const btn = document.querySelector('#btn')
 const ing = document.querySelector('#ing')
+const btn2 = document.querySelector('#btn2')
+const method = document.querySelector('#method')
 
 
+btn.addEventListener('click', addingIngsAndListOut)
+btn2.addEventListener('click', addingMethodsAndListOut)
 
-btn.addEventListener('click', addingIng)
 
-
-function addingIngAndListOut() {
+function addingIngsAndListOut() {
     const listEl = document.querySelector("#input");
     let list = document.createElement("input");
     let ingID = ing.options[ing.selectedIndex].value;
@@ -16,9 +18,22 @@ function addingIngAndListOut() {
     list.setAttribute('hidden', '')
     listEl.appendChild(list);
     const listOut = document.querySelector('#ingredList')
-    console.log(listOut)
     let list2 = document.createElement('li')
-    console.log(list2)
     list2.innerText = ingName
+    listOut.appendChild(list2)
+  }
+
+  function addingMethodsAndListOut() {
+    const listEl = document.querySelector("#input");
+    let list = document.createElement("input");
+    let methodStep = method.value
+    console.log(methodStep)
+    list.setAttribute('name', 'method')
+    list.setAttribute('value', `${methodStep}`)
+    list.setAttribute('hidden', '')
+    listEl.appendChild(list);
+    const listOut = document.querySelector('#methodSteps')
+    let list2 = document.createElement('li')
+    list2.innerText = methodStep
     listOut.appendChild(list2)
   }

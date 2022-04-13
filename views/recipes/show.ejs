@@ -7,9 +7,9 @@
     <% }) %>
   </ul>
   <ol>
-    <%- recipe.method.map(m=>
-      `<li>${m}</li>`
-      ) %>
+    <% recipe.method.forEach(m => { %>
+      <li><%= m %> </li>
+    <% }) %>
   </ol>
   <h2>
     <%= recipe.cuisine %>

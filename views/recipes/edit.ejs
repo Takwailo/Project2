@@ -1,19 +1,33 @@
 <%- include('../partials/header') %>
 
-<form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
-    <label>Tilte</label>
-    <input type="text" Name="title" required>
-    <label>Cuisne</label>
-    <select name ='cuisine' required>
-        <option value="Italian">Italian</option>
-        <option value="Japanese">Japanese</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Indian">Indian</option>
-        <option value="American">American</option>
-    </select>
-    <input type="submit" value="Add Recipe">
-</form>
+    <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
+        <label>Tilte</label>
+        <input type="text" Name="title" value="<%= recipe.title %> " required>
+        <label>Cuisne</label>
+        <select name='cuisine' required autocomplete="off">
+            <option value="">Pleaes choose an option</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Indian">Indian</option>
+            <option value="American">American</option>
+        </select>
+        <input type="submit" value="Change Recipe">
+    </form>
 
+    <ul>
+        <% recipe.ingredients.forEach(i=> { %>
+            <li>
+                <%= i.ingredient %>
+            </li>
+            <% }) %>
+    </ul>
+    <ol>
+        <% recipe.method.forEach(m=> { %>
+            <li>
+                <%= m %>
+            </li>
+            <% }) %>
+    </ol>
 
-
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
