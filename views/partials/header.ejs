@@ -15,22 +15,21 @@
 <body>
   <nav>
     <label>CookBook</label>
-    <a href="/recipes">ALL RECIPES</a>
-    <% if (user) { %>
-      <a href="/ingredients">ADD INGREDINETS</a>
-      <a href="/recipes/new">ADD RECIPES</a>
-      <a href="/logout">LOG OUT</a>
-      <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-        <% } %>
-          <div class="menu">
-            <div style="height:8px; width:20px; background-color:peru"></div>
-            <div style="height:1px; width:20px; background-color:green"></div>
-            <div style="height:1px; width:20px; background-color:red"></div>
-            <div style="height:1px; width:20px; background-color:yellow"></div>
-            <div style="height:1.5px; width:20px; background-color:brown"></div>
-            <div style="height:3px; width:20px; background-color:peru"></div>
-          </div>
+    <input type="checkbox" id="toggler">
+    <label id="menu" for="menu-input">
+      <div id="sidebar">
+        <ul>
+          <li><a href="/recipes">ALL RECIPES</a></li>
+          <% if (user) { %>
+            <li><a href="/ingredients">ADD INGREDINETS</a></li>
+            <li><a href="/recipes/new">ADD RECIPES</a></li>
+            <li><a href="/logout">LOG OUT</a></li>
+            <% } else { %>
+              <li><a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a></li>
+              <% } %>
+        </ul>
+      </div>
+    </label>
   </nav>
   <main>
     <h1 id="title">
