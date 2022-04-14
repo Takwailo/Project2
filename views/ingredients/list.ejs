@@ -1,15 +1,15 @@
 <%- include('../partials/header') %>
 
-    <form action="/ingredients" method="POST">
-        <input type="text" name="ingredient">
-        <select name="category">
+    <form class='AddIngForm' action="/ingredients" method="POST">
+        <input class='AddIngForm' type="text" name="ingredient" value="Input Ingredients">
+        <select class='AddIngForm' name="category">
             <option value="Fruit and Vegetables">Fruit and Vegetables</option>
             <option value="Starch">Starch</option>
             <option value="Dairy">Dairy</option>
             <option value="Protein">Protein</option>
             <option value="Fat">Fat</option>
         </select>
-        <input type="checkbox" name="like" checked>
+        Like?<input class='AddIngForm' type="checkbox" name="like" checked>
         <input type="submit">
     </form>
 
@@ -30,6 +30,14 @@
                     </td>
                     <td>
                         <%= i.like ? 'Yes' : 'Nope' %>
+                    </td>
+                    <td>
+                        <% if (user && user._id.equals(i.user)) { %>
+                        <form action="/ingredients?_method=DELETE" method="POST">
+                            <input type="hidden" name='remove' value="<%=i._id%>">
+                            <button type="submit">Remove</button>
+                        </form>
+                        <% } %>
                     </td>
                 </tr>
                 <% }) %>

@@ -103,23 +103,23 @@ function deleteMethod(req, res) {
   });
 }
 
-function addIng(req, res){
-  Recipe.findById(req.params.id, function(err, recipe){
-    recipe.ingredients.push(req.body.ingredients)
-    recipe.save(function(err){
+function addIng(req, res) {
+  Recipe.findById(req.params.id, function (err, recipe) {
+    recipe.ingredients.push(req.body.ingredients);
+    recipe.save(function (err) {
       res.redirect(`/recipes/${req.params.id}/edit`);
-    })
-  }
-)}
+    });
+  });
+}
 
-function addMethod (req, res){
-  Recipe.findById(req.params.id, function(err, recipe){
-    let index = req.body.index - 1
-    recipe.method.splice(index, 0, req.body.method)
-    recipe.save(function(err){
+function addMethod(req, res) {
+  Recipe.findById(req.params.id, function (err, recipe) {
+    let index = req.body.index - 1;
+    recipe.method.splice(index, 0, req.body.method);
+    recipe.save(function (err) {
       res.redirect(`/recipes/${req.params.id}/edit`);
-    })
-  })
+    });
+  });
 }
 
 module.exports = {

@@ -47,7 +47,7 @@
                 <label>Add Method</label>
                 <form action="/recipes/<%= recipe._id %>/AddingMethod?_method=PUT" method="POST">
                     <input name="method" type="text" required>
-                    <input name="index" type="number" min='1' max="<%length.value%>" required>
+                    <input name="index" type="number" min='1' required>
                     <button type="submit">add method step</button>
                 </form>
     </ol>

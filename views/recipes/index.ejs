@@ -1,13 +1,11 @@
 <%- include('../partials/header') %>
 
-<table>
-    <thead>
-        <th>Recipes Name</th>
-    </thead>
+<table id="allRecipesTable">
     <tbody>
         <% recipes.forEach(r => { %>
-            <td><%= r.title%></td>
-            <td><a href="/recipes/<%= r.id %>">DETAIL</td>
+            <tr>
+            <td><a id='tableContent' href="/recipes/<%= r.id %>"><%= r.title%></a></td>
+            </tr>
         <% }) %>
     </tbody>
 </table>

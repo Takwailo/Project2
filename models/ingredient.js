@@ -9,6 +9,7 @@ const ingredientSchema = new Schema({
     required: true,
   },
   like: { type: Boolean, default: true },
+  user: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 module.exports = mongoose.model("Ingredients", ingredientSchema);

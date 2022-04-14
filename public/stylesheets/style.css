@@ -1,8 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=My+Soul&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Square+Peg&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
 .login img {
   height: 20px;
 }
 
-nav{
+nav {
   background-color: #69bace;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+  height: 50px;
 }
 
+nav > label {
+  font-family: "Square Peg", cursive;
+  object-fit: contain;
+  margin-right: auto;
+  font-size: 30px;
+}
+
+nav > a {
+  margin: 10px;
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  font-family: "Bebas Neue";
+}
+
+nav > a:hover {
+  color: black;
+  background-color: transparent;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#allRecipesTable {
+  border: double;
+}
+
+#title {
+  font-family: "My Soul", cursive;
+  font-size: 50px;
+}
+
+#tableContent {
+  font-size: 20px;
+  text-decoration: none;
+  color: blueviolet;
+}
+
+#tableContent:hover {
+  color: black;
+  background-color: transparent;
+}
+
+#IngAndMethodList{
+  display: flex;
+}
+
+.List{
+  margin-left: 80px;
+  margin-right: 80px;
+  padding-left: 0px;
+}
+
+th, td{
+  padding-right: 20px;
+  padding-top: 5px;
+}
+
+.AddIngForm{
+  margin-right: 15px;
+}
