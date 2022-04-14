@@ -3,11 +3,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 .login img {
-  height: 20px;
+  height: 30px;
 }
 
 nav {
-  background-color: #69bace;
+  background: linear-gradient(to right, #9fd2de, #5ab6cd);
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -28,6 +28,8 @@ nav > a {
   color: white;
   background-color: transparent;
   font-family: "Bebas Neue";
+  display: flex;
+  align-items: center;
 }
 
 nav > a:hover {
@@ -39,10 +41,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(to bottom, #ffffff, #4270cc);
+  height: 90vh;
 }
 
 #allRecipesTable {
-  border: double;
+  border: 5px double;
+  padding: 15px;
+  border-radius: 15%;
+  background-color: white;
+
 }
 
 #title {
@@ -61,7 +69,7 @@ main {
   background-color: transparent;
 }
 
-#IngAndMethodList{
+.IngAndMethodList{
   display: flex;
 }
 
@@ -78,4 +86,19 @@ th, td{
 
 .AddIngForm{
   margin-right: 15px;
+}
+
+.newDiv{
+  display: flex;
+  margin-bottom: 30px;
+  padding-left: 10px;
+}
+
+#input{
+  margin-bottom: 30px;
+  padding-left: 10px
+}
+
+label{
+  margin-right: 5px;
 }

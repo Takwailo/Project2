@@ -1,33 +1,38 @@
 <%- include('../partials/header') %>
 
-<label>Ingredients choices</label>
-<select id="ing" required>
-    <%- ingredient.map(i=>
-      `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
-      )%>
-</select>
-<button id="btn">add ingredient</button>
+    <form id='input' action="/recipes" method="POST">
+        <label >Tilte:  </label>
+        <input class='AddIngForm' type="text" Name="title" required>
+        <label >Cuisne:  </label>
+        <select class='AddIngForm' name='cuisine' required>
+            <option value="">Pleaes choose an option</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Indian">Indian</option>
+            <option value="American">American</option>
+        </select>
+        <input class='AddIngForm' type="submit" value="Add Recipe">
+    </form>
 
-<label>Method</label>
-<input id="method" type="'text"required>
-<button id="btn2">add method step</button>
+    <div class="newDiv">
+        <label>Ingredients choices:  </label>
+        <select class='AddIngForm' id="ing" required>
+            <%- ingredient.map(i=>
+                `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
+                )%>
+        </select>
+        <button class='AddIngForm' id="btn">add ingredient</button>
+    </div>
+    <div class="newDiv">
+        <label>Step By Step:  </label>
+        <input class='AddIngForm' id="method" type="'text" required>
+        <button class='AddIngForm' id="btn2">add method step</button>
+    </div>
+    <div class="IngAndMethodList">
+        <ul class='List' id="ingredList">Ingredients</ul>
+        <ol class='List' id="methodSteps">Step by Step</ol>
+    </div>
 
-<ul id="ingredList">Ingredients</ul>
-<ol id="methodSteps">Step by Step</ol>
 
-<form id='input' action="/recipes" method="POST">
-    <label>Tilte</label>
-    <input type="text" Name="title" required>
-    <label>Cuisne</label>
-    <select name ='cuisine' required>
-        <option value="">Pleaes choose an option</option>
-        <option value="Italian">Italian</option>
-        <option value="Japanese">Japanese</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Indian">Indian</option>
-        <option value="American">American</option>
-    </select>
-    <input type="submit" value="Add Recipe">
-</form>
-
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

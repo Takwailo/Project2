@@ -21,8 +21,6 @@ function create(req, res) {
   const ingredient = new Ingredient(req.body);
   ingredient.save(function () {
     res.redirect("ingredients");
-    console.log(req.user._id)
-    console.log(ingredient.user)
   });
 }
 

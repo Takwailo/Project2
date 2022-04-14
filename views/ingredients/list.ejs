@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-    <form class='AddIngForm' action="/ingredients" method="POST">
+    <form action="/ingredients" method="POST">
         <input class='AddIngForm' type="text" name="ingredient" value="Input Ingredients">
         <select class='AddIngForm' name="category">
             <option value="Fruit and Vegetables">Fruit and Vegetables</option>
@@ -35,7 +35,7 @@
                         <% if (user && user._id.equals(i.user)) { %>
                         <form action="/ingredients?_method=DELETE" method="POST">
                             <input type="hidden" name='remove' value="<%=i._id%>">
-                            <button type="submit">Remove</button>
+                            <button id='confirm' type="submit">Remove</button>
                         </form>
                         <% } %>
                     </td>
