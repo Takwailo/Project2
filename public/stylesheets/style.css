@@ -126,11 +126,11 @@ label {
 #menu #sidebar {
   visibility: hidden;
   position: fixed;
-  top: 68px;
+  top: 60px;
   right: -250px;
   width: 250px;
   height: 100%;
-  background-color: rgb(35, 35, 170);
+  background-color: rgb(8, 8, 8);
   padding: 0px 10px;
   box-sizing: border-box;
   transition: 0.3s;
@@ -159,4 +159,8 @@ label {
   #menu #sidebar {
     opacity: 1;
   }
+}
+
+body{
+  margin: 0;
 }
