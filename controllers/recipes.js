@@ -122,6 +122,19 @@ function addMethod(req, res) {
   });
 }
 
+function search(req, res){
+  let ingredient = req.body.search
+  let upperCaseIngredient = ingredient.toUpperCase()
+  Ingredient.findOne({ingredient: `${upperCaseIngredient}`}, function(err, recipes){
+    if (recipes == null){res.redirect(`/recipes`)}
+    else {
+    Recipe.find({ ingredients: `${recipes._id}`}, function(err, result){
+      res.render('recipes/search', {result, title: "Search Result"})
+    })}
+  })
+}
+
+
 module.exports = {
   index,
   new: addRecipe,
@@ -134,4 +147,5 @@ module.exports = {
   deleteMethod,
   addIng,
   addMethod,
+  search
 };

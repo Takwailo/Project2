@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<div class="cookbooklook">
+    <ul id="allrecipes">
+        <% result.forEach(r=> { %>
+            <li><a id='tableContent' href="/recipes/<%= r.id %>">
+                    <%= r.title%>
+                </a></li>
+
+            <% }) %>
+    </ul>
+</div>
+
+<%- include('../partials/footer') %>
