@@ -46,7 +46,7 @@ function removeRecipe(req, res, next) {
     if (!recipe.user.equals(req.user._id)) return res.redirect(`/recipes`);
     recipe.remove();
     recipe.save(function (err) {
-      if (err) next(err);
+
       res.redirect("/recipes");
     });
   });
