@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-    <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
+    <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST" class="centerform">
         <label>Tilte</label>
         <input type="text" Name="title" value="<%= recipe.title %> " required>
         <label>Cuisne</label>
