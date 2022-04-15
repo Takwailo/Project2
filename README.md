@@ -6,7 +6,7 @@ Originally want to consume 3rd-party API and to look up and record like recipes,
 
 ### Screenshot: 
 
-! [ScreenShot of Landing Page](./public/images/screenshot.png)
+![ScreenShot of Landing Page](./public/images/screenshot.png)
 
 ### Technologies Used:
 Javasciprt, EJS, CSS, HTML5, EXPRESS, MangoDB, Mangoose, OAuth2
