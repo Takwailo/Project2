@@ -3,22 +3,22 @@
   <p>Cuisine Type:
     <%= recipe.cuisine %>
   </p>
-<div class="IngAndMethodList">
-  <ul class="List">Ingredients:
-    <% recipe.ingredients.forEach(i=> { %>
-      <li>
-        <%= i.ingredient %>
-      </li>
-      <% }) %>
-  </ul>
-  <ol class="List">Step by Step
-    <% recipe.method.forEach(m=> { %>
-      <li>
-        <%= m %>
-      </li>
-      <% }) %>
-  </ol>
-</div>
+  <div class="IngAndMethodList">
+    <ul class="List">Ingredients:
+      <% recipe.ingredients.forEach(i=> { %>
+        <li>
+          <%= i.ingredient %>
+        </li>
+        <% }) %>
+    </ul>
+    <ol class="List">Step by Step
+      <% recipe.method.forEach(m=> { %>
+        <li>
+          <%= m %>
+        </li>
+        <% }) %>
+    </ol>
+  </div>
   <p>Create by:
     <%= recipe.userName %>
   </p>

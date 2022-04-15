@@ -2,8 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Square+Peg&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-.login img {
-  height: 30px;
+
+body{
+  margin: 0;
 }
 
 nav {
@@ -25,7 +26,11 @@ nav > label {
   font-size: 30px;
 }
 
-a #sidebar{
+.login img {
+  height: 30px;
+}
+
+#sidebar a{
   margin: 10px;
   text-decoration: none;
   color: white;
@@ -40,6 +45,11 @@ nav > a:hover {
   background-color: transparent;
 }
 
+#title {
+  font-family: "My Soul", cursive;
+  font-size: 50px;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -48,16 +58,20 @@ main {
   height: 90vh;
 }
 
-#allRecipesTable {
+.cookbooklook{
+  height: 70%;
+  width: 300px;
   border: 5px double;
   padding: 15px;
   border-radius: 15%;
   background-color: white;
+  align-items: center;
 }
 
-#title {
-  font-family: "My Soul", cursive;
-  font-size: 50px;
+.cookbooklook ul{
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
 }
 
 #tableContent {
@@ -71,25 +85,6 @@ main {
   background-color: transparent;
 }
 
-.IngAndMethodList {
-  display: flex;
-}
-
-.List {
-  margin-left: 80px;
-  margin-right: 80px;
-  padding-left: 0px;
-}
-
-th,
-td {
-  padding-right: 20px;
-  padding-top: 5px;
-}
-
-.AddIngForm {
-  margin-right: 15px;
-}
 
 .newDiv {
   display: flex;
@@ -153,14 +148,38 @@ label {
 
 #sidebar > ul{
   margin-top: 80px;
+  list-style-type: none;
 }
 
-@media screen and (max-width: 400px) {
+.formlayout{
+  margin-bottom: 30px;
+}
+
+.formlayout label,input,select{
+  margin-bottom: 10px;
+}
+
+.tablelook{
+  margin-left:auto;
+  margin-right:auto;
+  table-layout: fixed;
+  width: 300px;
+}
+
+.tablelook th{
+  border-bottom: solid;
+}
+
+.tablelook td{
+text-align: center;
+border-bottom: dotted;
+}
+
+
+@media screen and (max-width: 800px) {
   #menu #sidebar {
     opacity: 1;
   }
 }
 
-body{
-  margin: 0;
-}
+

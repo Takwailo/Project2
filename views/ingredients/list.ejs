@@ -1,7 +1,8 @@
 <%- include('../partials/header') %>
 
-    <form action="/ingredients" method="POST">
-        <input class='AddIngForm' type="text" name="ingredient" value="Input Ingredients">
+    <form action="/ingredients" method="POST" class="formlayout">
+        <label>Adding Ingredients:</label>
+        <input class='AddIngForm' type="text" name="ingredient" placeholder="Input Here"></br>
         <select class='AddIngForm' name="category">
             <option value="Fruit and Vegetables">Fruit and Vegetables</option>
             <option value="Starch">Starch</option>
@@ -12,12 +13,13 @@
         Like?<input class='AddIngForm' type="checkbox" name="like" checked>
         <input type="submit">
     </form>
-
-    <table>
+<div class="cookbooklook">
+    <table class="tablelook">
         <tr>
             <th>Ingredient</th>
             <th>Category</th>
             <th>Like?</th>
+            <th>Remove</th>
         </tr>
         <tbody>
             <% ingredient.forEach(i=> { %>
@@ -35,7 +37,7 @@
                         <% if (user && user._id.equals(i.user)) { %>
                         <form action="/ingredients?_method=DELETE" method="POST">
                             <input type="hidden" name='remove' value="<%=i._id%>">
-                            <button id='confirm' type="submit">Remove</button>
+                            <button id='confirm' type="submit">X</button>
                         </form>
                         <% } %>
                     </td>
@@ -43,5 +45,5 @@
                 <% }) %>
         </tbody>
     </table>
-
+</div>
     <%- include('../partials/footer') %>

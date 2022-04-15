@@ -1,13 +1,12 @@
 <%- include('../partials/header') %>
+    <div class="cookbooklook">
+        <ul>
+            <% recipes.forEach(r=> { %>
+                <li><a id='tableContent' href="/recipes/<%= r.id %>">
+                        <%= r.title%>
+                    </a></li>
 
-<table id="allRecipesTable">
-    <tbody>
-        <% recipes.forEach(r => { %>
-            <tr>
-            <td><a id='tableContent' href="/recipes/<%= r.id %>"><%= r.title%></a></td>
-            </tr>
-        <% }) %>
-    </tbody>
-</table>
-  
-<%- include('../partials/footer') %>
+                <% }) %>
+        </ul>
+    </div>
+    <%- include('../partials/footer') %>
