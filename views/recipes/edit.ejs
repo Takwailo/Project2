@@ -15,41 +15,47 @@
         <input type="submit" value="Change Recipe">
     </form>
 
-    <ul>Ingredients
-        <% recipe.ingredients.forEach(i=> { %>
-            <li>
-                <%= i.ingredient %>
-                    <form action="/recipes/<%= recipe._id %>/RemoveIngredient?_method=DELETE" method="POST">
-                        <button type="submit" name="ing" value="<%= i.ingredient %>">Remove</button>
-                    </form>
-            </li>
-            <% }) %>
-    </ul>
-    <label>Ingredients choices</label>
+    <label>Adding Ingredients</label>
     <form action="/recipes/<%= recipe.id %>/AddIngredient?_method=PUT" method="POST">
-    <select name="ingredients" required>
-        <%- ingredients.map(i=>
-            `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
-            )%>
-    </select>
-    <button type="submit">add ingredient</button>
+        <select name="ingredients" required>
+            <%- ingredients.map(i=>
+                `<option id="ings" value="${i._id}">${i.ingredient.toUpperCase()}</option>`
+                )%>
+        </select>
+        <button type="submit">add ingredient</button>
     </form>
 
-    <ol id="methodSteps">Step by Step
-        <% recipe.method.forEach(m=> { %>
-            <li>
-                <%= m %>
-                    <form action="/recipes/<%= recipe._id %>/RemoveMethod?_method=DELETE" method="POST">
-                        <button type="submit" name="method" value="<%= m %>">Remove</button>
-                    </form>
-            </li>
-            <% }) %>
-                <label>Add Method</label>
-                <form action="/recipes/<%= recipe._id %>/AddingMethod?_method=PUT" method="POST">
-                    <input name="method" type="text" required>
-                    <input name="index" type="number" min='1' required>
-                    <button type="submit">add method step</button>
-                </form>
-    </ol>
+    <label>Add Method</label>
+    <form action="/recipes/<%= recipe._id %>/AddingMethod?_method=PUT" method="POST">
+        <input name="method" type="text" required placeholder="Input step and click add">
+        <input name="index" type="number" min='1' required placeholder="Input step number">
+        <button type="submit">ADD</button>
+    </form>
+
+    <div class="cookbooklook">
+        <ul id="ingredList">
+            <label>Ingredients:</label>
+            <% recipe.ingredients.forEach(i=> { %>
+                <li>
+                    <%= i.ingredient %>
+                        <form class="listout" action="/recipes/<%= recipe._id %>/RemoveIngredient?_method=DELETE" method="POST">
+                            <button type="submit" name="ing" value="<%= i.ingredient %>">Remove</button>
+                        </form>
+                </li>
+                <% }) %>
+        </ul>
+        <ol id="methodSteps">
+            <label>Step by Step:</label>
+            <% recipe.method.forEach(m=> { %>
+                <li>
+                    <%= m %>
+                        <form class="listout" action="/recipes/<%= recipe._id %>/RemoveMethod?_method=DELETE" method="POST">
+                            <button type="submit" name="method" value="<%= m %>">Remove</button>
+                        </form>
+                </li>
+                <% }) %>
+
+        </ol>
+    </div>
 
     <%- include('../partials/footer') %>

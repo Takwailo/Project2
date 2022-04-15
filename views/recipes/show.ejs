@@ -1,17 +1,21 @@
 <%- include('../partials/header') %>
 
-  <p>Cuisine Type:
-    <%= recipe.cuisine %>
-  </p>
-  <div class="IngAndMethodList">
-    <ul class="List">Ingredients:
+  <label>Cuisine Type:
+    <%= recipe.cuisine %></br>
+      Created by:
+      <%= recipe.userName %>
+  </label>
+  <div class="cookbooklook">
+    <ul class="List" id="ingredList">
+      <label>Ingredients:</label>
       <% recipe.ingredients.forEach(i=> { %>
         <li>
           <%= i.ingredient %>
         </li>
         <% }) %>
     </ul>
-    <ol class="List">Step by Step
+    <ol class="List" id="methodSteps">
+      <label>Step by Step:</label>
       <% recipe.method.forEach(m=> { %>
         <li>
           <%= m %>
@@ -19,15 +23,13 @@
         <% }) %>
     </ol>
   </div>
-  <p>Create by:
-    <%= recipe.userName %>
-  </p>
 
-  <% if (user && user._id.equals(recipe.user)) { %>
-    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
-      <button type="submit">DELETE RECIPE</button>
-    </form>
-    <button><a href="/recipes/<%= recipe.id %>/edit">EDIT RECIPE</a></button>
-    <% } %>
-
-      <%- include('../partials/footer') %>
+  <div class="deleteAndEdit">
+    <% if (user && user._id.equals(recipe.user)) { %>
+      <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="POST">
+        <button type="submit">DELETE RECIPE</button>
+      </form>
+      <button><a href="/recipes/<%= recipe.id %>/edit">EDIT RECIPE</a></button>
+      <% } %>
+  </div>
+  <%- include('../partials/footer') %>

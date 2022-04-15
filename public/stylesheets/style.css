@@ -40,11 +40,6 @@ nav > label {
   align-items: center;
 }
 
-nav > a:hover {
-  color: black;
-  background-color: transparent;
-}
-
 #title {
   font-family: "My Soul", cursive;
   font-size: 50px;
@@ -58,6 +53,10 @@ main {
   height: 90vh;
 }
 
+ul, ol{
+  margin: 30px 0;
+}
+
 .cookbooklook{
   height: 70%;
   width: 300px;
@@ -68,10 +67,45 @@ main {
   align-items: center;
 }
 
-.cookbooklook ul{
-  list-style-type: none;
+.cookbooklook ul, ol{
+  padding-left: 0;
+  align-items: center;
+  list-style-position: inside;
   text-align: center;
-  padding: 0;
+}
+
+.cookbooklook #allrecipes{
+  list-style: none;
+}
+
+.cookbooklook label{
+  text-decoration: underline;
+}
+
+.listout{
+  display: inline;
+}
+
+.cookbooklook #ingredList{
+  list-style-type: disc;
+}
+
+.cookbooklook #methodSteps{
+  list-style-type: decimal;
+}
+
+
+.deleteAndEdit{
+  display: flex;
+}
+
+.deleteAndEdit a{
+  text-decoration: none;
+  color: black;
+}
+
+.centerform{
+  align-items: center;
 }
 
 #tableContent {
@@ -83,22 +117,6 @@ main {
 #tableContent:hover {
   color: black;
   background-color: transparent;
-}
-
-
-.newDiv {
-  display: flex;
-  margin-bottom: 30px;
-  padding-left: 10px;
-}
-
-#input {
-  margin-bottom: 30px;
-  padding-left: 10px;
-}
-
-label {
-  margin-right: 5px;
 }
 
 #menu {

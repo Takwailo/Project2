@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
     <div class="cookbooklook">
-        <ul>
+        <ul id="allrecipes">
             <% recipes.forEach(r=> { %>
                 <li><a id='tableContent' href="/recipes/<%= r.id %>">
                         <%= r.title%>
