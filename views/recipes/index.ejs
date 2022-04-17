@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
-<form id='input' action="/recipes/search" method="post">
-    <input type="text" name="search" placeholder="Enter 1 Ingredient">
-    <input type="submit" value="Search">
+<form id='searchForm' action="/recipes/search" method="post">
+    <input id="searchIngredient" type="text" name="search" placeholder="Enter 1 Ingredient">
+    <input id="searchButton" type="submit" value="Search">
 </form>
     <div class="cookbooklook">
         <ul id="allrecipes">

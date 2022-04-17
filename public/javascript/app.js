@@ -3,13 +3,8 @@ const ing = document.querySelector('#ing')
 const btn2 = document.querySelector('#btn2')
 const method = document.querySelector('#method')
 
-
-
-
-btn.addEventListener('click', addingIngsAndListOut)
-btn2.addEventListener('click', addingMethodsAndListOut)
-
-
+btn && btn.addEventListener('click', addingIngsAndListOut)
+btn2 && btn2.addEventListener('click', addingMethodsAndListOut)
 
 function addingIngsAndListOut() {
     const listEl = document.querySelector("#input");
